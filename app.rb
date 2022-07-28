@@ -50,4 +50,17 @@ def create_people
   end
   
   puts 'Person created successfully'
-end    
+end 
+
+# Create a student
+def create_student
+  print 'Name: '
+  name = gets.chomp
+  
+  print 'Age: '
+  age = gets.chomp
+
+  student = Student.new(name, age)
+  @people.push(student)
+  puts 'Student added successfully'
+end
