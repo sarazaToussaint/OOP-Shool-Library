@@ -21,6 +21,10 @@ class Person < Nameable
     @name
   end
 
+  def add_rental(date, person)
+    Rental.new(date, self, person)
+  end
+
   def can_use_services?
     of_age? || @parent_permission
   end
