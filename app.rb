@@ -33,3 +33,21 @@ def list_people
   @people.map do |person|
     puts "[#{person.class}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"        
 end
+
+# Create a person (teacher or student, not a plain Person)
+def create_people
+  print 'Do you want to create a student (1) or a teacher (2)? Please select an option: '
+  option = gets.chomp
+  
+  case option
+  when '1'
+    create_student
+  when '2'
+    create_teacher
+  else
+    puts 'Please enter a valid input'
+    return
+  end
+  
+  puts 'Person created successfully'
+end    
