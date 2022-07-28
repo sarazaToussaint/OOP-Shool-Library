@@ -1,6 +1,6 @@
 require './app'
 
-class App
+class Apps
   def self.menu
     puts 'Welcom to the School Library'
     puts "\n"
@@ -22,3 +22,34 @@ class App
   end
     Integer(gets.chomp)
 end
+
+result = App.new
+
+loop do
+  case menu
+  when 1
+    result.list_books
+  when 2
+    result.list_people
+  when 3
+    result.create_person
+  when 4
+    result.create_book
+  when 5
+    result.create_rental
+  when 6
+    result.list_rentals
+  when 7
+    puts 'Thank you for using the app!'
+    exit
+    else
+      puts 'Choose a number between 1 to 7'
+    end
+  end
+end
+
+def main
+  Apps.new
+end
+
+main
