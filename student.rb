@@ -1,8 +1,10 @@
 require_relative './person'
 
 class Student < Person
-  def initialize(age, classroom, name = 'Unknown', parent_permission = 'true')
-    super(age, name, parent_permission: parent_permission)
+  attr_reader :classroom
+
+  def initialize(age, classroom, name = 'Unknown')
+    super(age, name)
     @classroom = classroom
   end
 
@@ -12,6 +14,6 @@ class Student < Person
 
   def classroom=(classroom)
     @classroom = classroom
-    classroom.students << self unless classroom.students.include?(self)
+    classroom.students.push(self) unless classroom.students.include?(self)
   end
 end

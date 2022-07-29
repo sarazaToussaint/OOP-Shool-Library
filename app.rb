@@ -55,29 +55,30 @@ class App
 
   # Create a student
   def create_student
-    print 'Name: '
-    name = gets.chomp
-
     print 'Age: '
     age = gets.chomp
 
-    student = Student.new(age, name)
+    print 'Name: '
+    name = gets.chomp
+
+    student = Student.new(age, nil, name)
     @people.push(student)
+
     puts 'Student added successfully'
   end
 
   # Create a teacher
   def create_teacher
-    print 'Name: '
-    name = gets.chomp
-
     print 'Age: '
     age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
 
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(specialization, age, name)
+    teacher = Teacher.new(age, specialization, name)
     @people.push(teacher)
     puts 'Teacher added successfully'
   end
@@ -112,8 +113,8 @@ class App
       end
       rental_person = gets.chomp.to_i
       puts 'Enter date in format YYYY-MM-DD'
-      date = convert_date(gets)
-      rental_detail = Rental.new(@people[rental_person], @books[rental_book], date)
+      date = gets.chomp.to_s
+      rental_detail = Rental.new(date, @books[rental_book], @people[rental_person])
       @rentals.push(rental_detail)
       puts 'Rental Successfully Created'
     end
@@ -131,7 +132,7 @@ class App
   end
 
   # Convert date
-  def convert_date(str)
-    Date.parse(str)
-  end
+  # def convert_date(str)
+  #   Date.parse(str)
+  # end
 end
