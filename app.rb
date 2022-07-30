@@ -56,7 +56,6 @@ class App
   # Create a student
   def create_student
     print 'Age: '
-    age = gets.chomp
 
     print 'Name: '
     name = gets.chomp
